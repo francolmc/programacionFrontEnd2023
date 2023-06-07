@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi sitio personal</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#portfolio">Portafolio</a></li>
+                <li><a href="#about">Acerca de</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h1>Mi sitio personal</h1>
+            <p>Soy desarrollador frontend y apasionado por la tecnologia.</p>
+            <a href="#contact">Contactame</a>
+        </section>
+        <section id="portfolio">
+            <h2>Mi portafolio</h2>
+			<div class="grid">
+				<div class="card">
+					<img src="./assets/img/proyecto-1.jpg" alt="Proyecto 1">
+					<h3>Proyecto 1</h3>
+					<p>Descripción del proyecto 1.</p>
+					<a href="#">Ver proyecto</a>
+				</div>
+				<div class="card">
+					<img src="./assets/img/proyecto-2.jpg" alt="Proyecto 2">
+					<h3>Proyecto 2</h3>
+					<p>Descripción del proyecto 2.</p>
+					<a href="#">Ver proyecto</a>
+				</div>
+				<div class="card">
+					<img src="./assets/img/proyecto-3.jpg" alt="Proyecto 3">
+					<h3>Proyecto 3</h3>
+					<p>Descripción del proyecto 3.</p>
+					<a href="#">Ver proyecto</a>
+				</div>
+			</div>
+        </section>
+        <section id="about">
+            <h2>Acerca de mí</h2>
+			<p>Mi nombre es Juan Desarrollador y soy un desarrollador frontend con experiencia en HTML, CSS, JavaScript y otras tecnologías.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint voluptatem facilis quis cumque accusamus illo, ipsam voluptates assumenda voluptate et. Temporibus nihil id dolorum, debitis suscipit illum excepturi eum vero.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur vitae, repellendus quod sapiente accusamus, consectetur, esse iusto totam ipsam velit ab labore harum. Sint autem omnis tempore tempora vel minima.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi dolor harum cumque eligendi tempora mollitia quis optio in tenetur non ipsam, odio, incidunt suscipit, nostrum dolorem labore excepturi expedita facere!</p>
+			<a href="#">Descarga mi CV</a>
+        </section>
+        <section id="contact">
+            <h2>Contáctame</h2>
+			<form action="#" method="post">
+				<label for="name">Nombre:</label>
+				<input type="text" id="name" name="name">
+				<label for="email">Correo electrónico:</label>
+				<input type="email" id="email" name="email">
+				<label for="message">Mensaje:</label>
+				<textarea name="message" id="message"></textarea>
+				<input type="submit" value="Enviar">
+			</form>
+        </section>
+    </main>
+    <footer>
+		<p>Derechos reservados © 2023 Mi sitio personal</p>
+	</footer>
+</body>
+</html>

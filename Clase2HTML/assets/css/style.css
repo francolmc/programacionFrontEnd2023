@@ -1,0 +1,145 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+	font-family: Arial, sans-serif;
+	color: #333;
+}
+
+header {
+	background-color: #fff;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+}
+
+nav li {
+	margin-right: 1rem;
+}
+
+nav a {
+	display: block;
+	padding: 1rem;
+	color: #333;
+	text-decoration: none;
+}
+
+nav a:hover {
+	background-color: #f4f4f4;
+}
+
+main {
+	margin-top: 5rem;
+}
+
+section {
+	padding: 2rem;
+}
+
+h1, h2, h3 {
+	margin: 0;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+h2 {
+	font-size: 2rem;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-gap: 2rem;
+}
+
+.card {
+	background-color: #fff;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	padding: 1rem;
+}
+
+.card img {
+	max-width: 100%;
+}
+
+.card h3 {
+	font-size: 1.5rem;
+	margin: 1rem 0;
+}
+
+.card p {
+	font-size: 1rem;
+	margin: 0;
+}
+
+.card a {
+	display: block;
+	margin-top: 1rem;
+	background-color: #333;
+	color: #fff;
+	padding: 1rem;
+	text-align: center;
+	text-decoration: none;
+}
+
+.card a:hover {
+	background-color: #666;
+}
+
+form {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 1rem;
+}
+
+label, input, textarea {
+	display: block;
+}
+
+label {
+	font-size: 1rem;
+	margin-bottom: 0.5rem;
+}
+
+input[type="text"], input[type="email"], textarea {
+	padding: 0.5rem;
+	font-size: 1rem;
+	border: none;
+	border-bottom: 2px solid #333;
+}
+
+input[type="submit"] {
+	background-color: #333;
+	color: #fff;
+	padding: 1rem;
+	border: none;
+	text-align: center;
+	text-decoration: none;
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background-color: #666;
+}
+
+footer {
+	background-color: #333;
+	color: #fff;
+	padding: 1rem;
+	text-align: center;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function mensaje() {
+            alert('Mensaje con alert.');
+            document.getElementById('saludo').value = 'Esto es un saludo';
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="Click mensaje" onclick="mensaje()">
+    <input type="text" name="saludo" id="saludo">
+</body>
+</html>
