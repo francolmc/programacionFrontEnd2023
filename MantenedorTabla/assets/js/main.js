@@ -31,7 +31,7 @@ const showData = () => {
                               <td>${personList[i].email}</td>
                               <td>${personList[i].firstName}</td>
                               <td>${personList[i].lastName}</td>
-                              <td><a href="#">Editar</a> | 
+                              <td><a href="#" onclick="editPerson('${personList[i].email}')">Editar</a> | 
                               <a href="#" onclick="deletePerson('${personList[i].email}')">Eliminar</a></td>
                             </tr>`
   }
@@ -69,6 +69,44 @@ const deletePerson = (email) => {
   showData();
 };
 
+// funcion para realizar la accion de editar
+const editPerson = (email) => {
+  // limpiar los cuadros de texto
+  document.getElementById('email').value = '';
+  document.getElementById('firstName').value = '';
+  document.getElementById('lastName').value = '';
+  // buscar el registro por email
+  const index = personList.findIndex((item) => item.email === email);
+  // asignar los valores del registro a los cudros de texto
+  document.getElementById('email').value = personList[index].email;
+  document.getElementById('firstName').value = personList[index].firstName;
+  document.getElementById('lastName').value = personList[index].lastName;
+  // deshabilitar o dejar en modo lectura el campo email
+  document.getElementById('email').disabled = true;
+  // Cambiar el boton de agregar por un boton actualizar
+  document.getElementById('addButton').style.display = 'none';
+  document.getElementById('updateButton').style.display = 'inline';
+};
+
+// funcion para guardar los datos que se quieren actualizar
+const updatePerson = () => {
+  // actualizar los datos
+  let email = document.getElementById('email').value;
+  // buscar el registro
+  const index = personList.findIndex((item) => item.email === email);
+  personList[index].firstName = document.getElementById('firstName').value;
+  personList[index].lastName = document.getElementById('lastName').value;
+  // dejar el formulario como estaba, con los cuadros de texto limpios y habilitados,
+  document.getElementById('email').disabled = false;
+  document.getElementById('email').value = '';
+  document.getElementById('firstName').value = '';
+  document.getElementById('lastName').value = '';
+  // tambien con el boton agregar
+  document.getElementById('addButton').style.display = 'inline';
+  document.getElementById('updateButton').style.display = 'none';
+  alert('El registro fue actualizado.');
+  showData();
+};
 
 // llamada inicial a la metodo que llena la tabla HTML con el arreglo de objetos
 showData();

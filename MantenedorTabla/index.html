@@ -13,7 +13,8 @@
         <input type="email" name="email" id="email" placeholder="Ingrese email">
         <input type="text" name="firstName" id="firstName" placeholder="Ingrese nombre">
         <input type="text" name="lastName" id="lastName" placeholder="Ingrese apellidos">
-        <button onclick="addPerson()">Agregar</button>
+        <button id="addButton" onclick="addPerson(); return false;">Agregar</button>
+        <button id="updateButton" onclick="updatePerson(); return false;" style="display: none;">Actualizar</button>
     </form>
     <h3>Lista de datos</h3>
     <table id="personlist">
