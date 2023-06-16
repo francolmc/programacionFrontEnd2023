@@ -59,3 +59,11 @@ button:hover {
   background-color: #4942e4;
 }
 
+#searchForm {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#searchForm>button {
+  margin-left: 10px;
+}

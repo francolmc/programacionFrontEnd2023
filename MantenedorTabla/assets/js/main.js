@@ -15,7 +15,7 @@ class Person {
 }
 
 // Contar un metodo que muestre la lista de datos en la tabla HTML
-const showData = () => {
+const showData = (dataList) => {
   // obtener la tabla del documento HTML
   const objectTableHTML = document.getElementById('personlist');
   // limpiar contenido de la tabla y asignar las cabeceras
@@ -26,14 +26,16 @@ const showData = () => {
                       <th></th>
                     </tr>`;
   // crear las filas para la tabla HTML con los objetos del arreglo
-  for (let i = 0; i < personList.length; i++) {
-    tableHTML = tableHTML + `<tr>
-                              <td>${personList[i].email}</td>
-                              <td>${personList[i].firstName}</td>
-                              <td>${personList[i].lastName}</td>
-                              <td><a href="#" onclick="editPerson('${personList[i].email}')">Editar</a> | 
-                              <a href="#" onclick="deletePerson('${personList[i].email}')">Eliminar</a></td>
-                            </tr>`
+  if (dataList && dataList.length > 0) {
+    for (let i = 0; i < dataList.length; i++) {
+      tableHTML = tableHTML + `<tr>
+                                <td>${dataList[i].email}</td>
+                                <td>${dataList[i].firstName}</td>
+                                <td>${dataList[i].lastName}</td>
+                                <td><a href="#" onclick="editPerson('${dataList[i].email}')">Editar</a> | 
+                                <a href="#" onclick="deletePerson('${dataList[i].email}')">Eliminar</a></td>
+                              </tr>`
+    }
   }
   // cargar el string con el HTML de la tabla a la tabla del documento
   objectTableHTML.innerHTML = tableHTML;
@@ -53,7 +55,7 @@ const addPerson = () => {
     personList.push(person);
   }
   // lamada al metodo que llena la tabla HTML para que aparezca el nuevo dato
-  showData();
+  showData(personList);
 };
 
 // funcion para eliminar datos del arreglo
@@ -66,7 +68,7 @@ const deletePerson = (email) => {
     personList.splice(indexPerson, 1);
   }
   // llamar a la funcion que dibuja o renderiza la tabla en el HTML
-  showData();
+  showData(personList);
 };
 
 // funcion para realizar la accion de editar
@@ -105,8 +107,39 @@ const updatePerson = () => {
   document.getElementById('addButton').style.display = 'inline';
   document.getElementById('updateButton').style.display = 'none';
   alert('El registro fue actualizado.');
-  showData();
+  showData(personList);
 };
 
+// Buscador de registros
+const searchPerson = () => {
+  // asignar a constante el valor a buscar contenido en el cuadro de texto
+  const textQuery = document.getElementById('searchValue').value;
+  // realizar busqueda
+  // el metodo find busca un elemento
+  /* const result = personList.find((item) => 
+    item.email.includes(textQuery) ||
+    item.firstName.includes(textQuery) ||
+    item.lastName.includes(textQuery)
+  );*/
+  // El metodo filter, busca todos los elementos
+  const result = personList.filter((item) => 
+    item.email.includes(textQuery) ||
+    item.firstName.includes(textQuery) ||
+    item.lastName.includes(textQuery)
+  );
+  if (result) {
+    if (Array.isArray(result)) {
+      // recargar tabla de datos
+      showData(result);
+    } else {
+      // recargar tabla de datos
+      showData([result]);
+    }
+  } else {
+    showData([]);
+    alert('No hay resultados para la busqueda.');
+  }
+}
+
 // llamada inicial a la metodo que llena la tabla HTML con el arreglo de objetos
-showData();
+showData(personList);

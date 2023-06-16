@@ -9,14 +9,20 @@
 </head>
 <body>
     <h2>Formulario de ingreso de datos</h2>
+    <!-- <form action="#" onsubmit="addPerson()"> -->
     <form action="#">
-        <input type="email" name="email" id="email" placeholder="Ingrese email">
-        <input type="text" name="firstName" id="firstName" placeholder="Ingrese nombre">
-        <input type="text" name="lastName" id="lastName" placeholder="Ingrese apellidos">
+        <input type="email" name="email" id="email" placeholder="Ingrese email" required>
+        <input type="text" name="firstName" id="firstName" placeholder="Ingrese nombre" required>
+        <input type="text" name="lastName" id="lastName" placeholder="Ingrese apellidos" required>
+        <!-- <input type="submit" value="Enviar"> -->
         <button id="addButton" onclick="addPerson(); return false;">Agregar</button>
         <button id="updateButton" onclick="updatePerson(); return false;" style="display: none;">Actualizar</button>
     </form>
     <h3>Lista de datos</h3>
+    <div id="searchForm">
+        <input type="text" name="searchValue" id="searchValue" placeholder="Ingrese texto busqueda">
+        <button onclick="searchPerson(); return false;">Buscar</button>
+    </div>
     <table id="personlist">
             <tr>
                 <th>Email</th>
