@@ -127,7 +127,7 @@ const searchPerson = () => {
     item.firstName.includes(textQuery) ||
     item.lastName.includes(textQuery)
   );
-  if (result) {
+  if (result && result.length > 0) {
     if (Array.isArray(result)) {
       // recargar tabla de datos
       showData(result);
