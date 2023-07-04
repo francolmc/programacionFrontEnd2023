@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Evaluacion 3 - FontEnd</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css" />
+  </head>
+  <body>
+    <h1>Evaluacion 3 - FontEnd</h1>
+    <h3>Lista de productos</h3>
+    <form id="product-form" action="#">
+      <label for="name">Nombre producto:</label>
+      <input type="text" id="name" required />
+      <label for="quantity">Cantidad:</label>
+      <input type="number" id="quantity" required />
+      <label for="price">Precio:</label>
+      <input type="number" id="price" required />
+      <button type="submit" id="add-btn" onclick="addProduct(); return false;">
+        Agregar
+      </button>
+      <button
+        type="submit"
+        id="update-btn"
+        onclick="updateProduct(); return false;"
+        disabled
+      >
+        Modificar
+      </button>
+    </form>
+
+    <div id="product-list">
+      <p><strong>Nombre:</strong> Papas</p>
+      <p><strong>Cantidad:</strong> 10</p>
+      <p><strong>Precio</strong> 100</p>
+      <button onclick="editProduct(1); return false;">Editar</button>
+      <button onclick="deleteProduct(1); return false;">Eliminar</button>
+    </div>
+
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
