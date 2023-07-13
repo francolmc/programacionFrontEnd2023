@@ -1,1 +1,9 @@
-
+/* estilo para permitir que el footer quede al final */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+footer {
+  margin-top: auto;
+}
