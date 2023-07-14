@@ -4,19 +4,28 @@ import { Button, Form } from "react-bootstrap";
 const TodoForm = () => {
   // Se define el hook useState para almacenar el estado del valor del cuadro de texto
   const [todo, setTodo] = useState("");
+  const [message, setMessage] = useState("");
 
   // Esta funcion se define para guardar la tarea en el localstorage
   const saveTodo = () => {
     // primero se recupera la data del localstorage que deberia ser un JSON es por esto que se realiza la conversion de string a JSON
     const data = JSON.parse(localStorage.getItem("todoList") || "[]");
+    // TODO: agregar validacion para no ingresar la misma tarea repetida
     // ahora se agrega la tarea a la data entregando como parametro un objecto JSON con los datos de la tarea
-    data.push({
-      todo,
-      completed: false, // inicialmente las tareas ingresadas tiene su estado completed en false
-    });
+    if (data.findIndex((item) => item.todo === todo) >= 0) {
+      setMessage("El registro ya existe");
+    } else {
+      data.push({
+        todo,
+        completed: false, // inicialmente las tareas ingresadas tiene su estado completed en false
+      });
+      setMessage("");
+    }
     // finalmente se convirte el arreglo de objectos JSON a string y se guarda en el localstorage de regreso
-    localStorage.setItem("todoList", JSON.stringify(data));
+    localStorage.setItem("todoList", JSON.stringify(data)
     setTodo("");
+    // disparar evento para la actualizacion de la tabla
+    window.dispatchEvent(new Event("storage"));
   };
 
   return (
@@ -37,8 +46,11 @@ const TodoForm = () => {
         <Form.Group className="mb-3">
           <Button variant="secondary" onClick={saveTodo}>
             Guardar tarea
-          </Button>{" "}
+          </Button>
           {/* este es el boton que llama al metodo para guardar la tarea */}
+        </Form.Group>
+        <Form.Group>
+          {message !== "" ? <div style={{ color: "red" }}>{message}</div> : ""}
         </Form.Group>
       </Form>
     </>
